@@ -1,7 +1,9 @@
 import '../styles/Schema.css';
 
 const Schema = ({ tables }) => {
+  
   if (!tables || tables.length === 0) return null;
+
 
   return (
     <section className="schema-section">
