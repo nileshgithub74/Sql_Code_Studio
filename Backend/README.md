@@ -133,18 +133,7 @@ Client Request → Express Router → Controller → Service → Database → Re
 - SQL injection prevention through parameterized queries
 - CORS configuration for frontend integration
 
-## 🧪 Testing
 
-Run syntax check:
-```bash
-node --check server.js
-```
-
-Test individual files:
-```bash
-node --check controller/sqlController.js
-node --check services/answerValidationService.js
-```
 
 ## 📊 Database Models
 
