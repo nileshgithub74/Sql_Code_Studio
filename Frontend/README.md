@@ -1,287 +1,404 @@
-# SQL Editor Frontend
+# CipherSQL Studio - Frontend
 
-React-based frontend application for the SQL Editor learning platform.
+React-based frontend application with user authentication and interactive SQL learning interface.
 
-## 🛠️ Tech Stack
+## 🚀 Features
 
-- **React 19** - Modern UI framework
-- **Vite** - Fast build tool and development server
-- **Monaco Editor** - VS Code-like code editor
-- **React Router DOM** - Client-side routing
-- **Axios** - HTTP client for API communication
-- **Vanilla CSS** - Custom styling without frameworks
+### Authentication System
+- **User Registration & Login** with email validation
+- **Toast Notifications** using react-hot-toast for user feedback
+- **Form Validation** with real-time error handling
+- **Automatic Redirects** after successful authentication
+- **Responsive Design** for all screen sizes
+
+### SQL Learning Interface
+- **Interactive SQL Editor** powered by Monaco Editor
+- **Assignment Browser** with difficulty filtering
+- **Real-time Query Execution** with results display
+- **Schema Visualization** for database understanding
+- **Hint System** for guided learning
+- **Progress Tracking** and assignment completion
+
+### User Experience
+- **Modern UI Design** with clean, intuitive interface
+- **Responsive Layout** optimized for desktop and mobile
+- **Loading States** and error handling throughout
+- **Navigation System** with React Router DOM
+- **Component-based Architecture** for maintainability
+
 ## 📁 Project Structure
 
 ```
 Frontend/
 ├── src/
-│   ├── components/          # Reusable UI components
-│   │   ├── AssignmentHeader.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── Problem.jsx
-│   │   ├── QueryPanel.jsx
-│   │   ├── ResultsDisplay.jsx
-│   │   ├── Schema.jsx
-│   │   ├── Sidebar.jsx
-│   │   └── SQLEditor.jsx
+│   ├── component/           # Reusable UI components
+│   │   ├── Navbar.jsx      # Navigation bar
+│   │   ├── SQLEditor.jsx   # Monaco-based SQL editor
+│   │   ├── ResultsDisplay.jsx # Query results viewer
+│   │   ├── Schema.jsx      # Database schema display
+│   │   ├── Sidebar.jsx     # Assignment navigation
+│   │   ├── QueryPanel.jsx  # Query execution panel
+│   │   └── Problem.jsx     # Assignment problem display
 │   ├── pages/              # Page components
-│   │   ├── Assignment.jsx
-│   │   ├── AssignmentList.jsx
-│   │   └── Home.jsx
+│   │   ├── Home.jsx        # Landing page
+│   │   ├── Login.jsx       # User login form
+│   │   ├── Register.jsx    # User registration form
+│   │   ├── AssignmentList.jsx # Browse assignments
+│   │   └── Assignment.jsx  # Individual assignment page
 │   ├── styles/             # CSS stylesheets
-│   │   ├── App.css
-│   │   ├── Assignment.css
-│   │   ├── [component].css
-│   │   └── index.css
-│   ├── config/             # Configuration
-│   │   └── api.js
-│   ├── App.jsx             # Main app component
-│   └── main.jsx            # Entry point
+│   │   ├── App.css         # Global styles
+│   │   ├── Auth.css        # Authentication forms
+│   │   ├── Navbar.css      # Navigation styling
+│   │   ├── Home.css        # Landing page styles
+│   │   └── [component].css # Component-specific styles
+│   ├── config/             # Configuration files
+│   │   └── api.js          # API configuration
+│   ├── App.jsx             # Main application component
+│   └── main.jsx            # Application entry point
 ├── public/                 # Static assets
-├── dist/                   # Production build
-├── .env                    # Environment variables
-├── .gitignore
-├── package.json
+├── index.html              # HTML template
+├── package.json            # Dependencies and scripts
 └── vite.config.js          # Vite configuration
 ```
 
-## 🚀 Getting Started
+## 🛠️ Installation
 
 ### Prerequisites
-- Node.js 18+
-- Backend API running on port 8080
+- Node.js (v16 or higher)
+- npm or yarn package manager
+- Backend API running on http://localhost:8080
 
-### Installation
+### Setup Steps
 
-1. **Install dependencies:**
-```bash
-npm install
-```
+1. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
 
-2. **Environment Setup:**
-Create `.env` file:
-```env
-VITE_API_URL=http://localhost:8080/api
-```
+2. **Environment Configuration:**
+   Create `.env` file:
+   ```env
+   VITE_API_URL=http://localhost:8080
+   ```
 
 3. **Start Development Server:**
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
+   Application runs on: http://localhost:5173
 
 4. **Build for Production:**
-```bash
-npm run build
-```
+   ```bash
+   npm run build
+   ```
 
 5. **Preview Production Build:**
-```bash
-npm run preview
-```
+   ```bash
+   npm run preview
+   ```
 
-## 🎨 Components
+## 🎯 Pages & Components
 
-### Core Components
+### Authentication Pages
 
-#### `SQLEditor.jsx`
-- Monaco Editor integration
-- Syntax highlighting for SQL
-- Keyboard shortcuts (Ctrl+Enter to execute)
-- Query execution controls
+#### Login Page (`/login`)
+- Email and password input fields
+- Form validation with error messages
+- Success toast notifications
+- Automatic redirect to home page
+- Link to registration page
 
-#### `ResultsDisplay.jsx`
-- Query result visualization
-- Validation feedback (✅ Correct / ❌ Incorrect)
-- Scrollable data tables
-- Row count display
+**Features:**
+- Real-time form validation
+- Loading states during authentication
+- Error handling for invalid credentials
+- Toast notifications for user feedback
 
-#### `QueryPanel.jsx`
-- Combines editor and results
-- Manages layout switching
-- Auto-scroll to results
+#### Register Page (`/register`)
+- Name, email, password, and confirm password fields
+- Password strength validation
+- Password confirmation matching
+- Success toast and redirect
+- Link to login page
 
-#### `AssignmentHeader.jsx`
-- Assignment title and difficulty
-- Compact single-row layout
-- Difficulty badges
+**Features:**
+- Comprehensive form validation
+- Password strength requirements
+- Duplicate email detection
+- Success feedback with user name
 
-#### `Sidebar.jsx`
-- Problem description
+### Main Application Pages
+
+#### Home Page (`/`)
+- Welcome message and platform introduction
+- Call-to-action buttons
+- Feature highlights
+- Navigation to assignments
+
+#### Assignment List (`/assignments`)
+- Browse all available SQL assignments
+- Filter by difficulty level
+- Assignment cards with descriptions
+- Progress indicators
+- Direct links to individual assignments
+
+#### Assignment Page (`/assignment/:id`)
+- Interactive SQL editor with syntax highlighting
+- Problem statement and requirements
 - Database schema visualization
+- Query execution and results display
+- Hint system for guidance
+- Answer validation feedback
+
+### Reusable Components
+
+#### Navbar Component
+- Brand logo and navigation links
+- Authentication status display
+- Login/Register buttons for unauthenticated users
+- User welcome message for authenticated users
+- Responsive mobile menu
+
+#### SQL Editor Component
+- Monaco Editor integration
+- SQL syntax highlighting
+- Auto-completion features
+- Query execution controls
+- Error highlighting
+
+#### Results Display Component
+- Tabular data presentation
+- Query execution time display
+- Row count information
+- Error message handling
+- Export functionality
+
+#### Schema Component
+- Database table visualization
+- Column information display
+- Data type indicators
 - Sample data preview
 
-### Page Components
+## 🎨 Styling & Design
 
-#### `AssignmentList.jsx`
-- Lists available assignments
-- Difficulty filtering
-- Assignment cards with descriptions
+### Design System
+- **Color Palette**: Modern blue and gray tones
+- **Typography**: Clean, readable fonts
+- **Spacing**: Consistent margin and padding system
+- **Components**: Reusable UI elements
+- **Responsive**: Mobile-first design approach
 
-#### `Assignment.jsx`
-- Main assignment interface
-- Integrates all components
-- Manages state and API calls
+### CSS Architecture
+- **Component-scoped styles** for maintainability
+- **Global styles** for common elements
+- **Responsive breakpoints** for different screen sizes
+- **CSS custom properties** for theming
+- **Flexbox and Grid** for layouts
 
-#### `Home.jsx`
-- Landing page
-- Call-to-action for assignments
-
-## 🎯 Features
-
-### SQL Editor
-- **Monaco Editor** - Professional code editing experience
-- **Syntax Highlighting** - SQL syntax coloring
-- **Auto-completion** - Smart code suggestions
-- **Keyboard Shortcuts** - Ctrl+Enter to execute queries
-- **Dark Theme** - Easy on the eyes
-
-### Query Execution
-- **Real-time Execution** - Run queries against live database
-- **Instant Validation** - Immediate feedback on correctness
-- **Result Visualization** - Clean table display
-- **Auto-scroll** - Automatically scroll to results
-
-### User Interface
-- **Responsive Design** - Works on all screen sizes
-- **Clean Layout** - Minimal, distraction-free interface
-- **Smooth Animations** - Polished user experience
-- **Accessible** - Keyboard navigation support
+### Authentication UI
+- **Gradient backgrounds** for visual appeal
+- **Card-based layouts** for form containers
+- **Smooth transitions** and hover effects
+- **Loading states** with disabled buttons
+- **Error styling** with red color scheme
 
 ## 🔧 Configuration
 
-### API Configuration (`src/config/api.js`)
-```javascript
-const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
-};
-```
+### Environment Variables
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `VITE_API_URL` | Backend API base URL | http://localhost:8080 |
 
-### Vite Configuration (`vite.config.js`)
+### Vite Configuration
 ```javascript
-export default defineConfig({
+// vite.config.js
+export default {
   plugins: [react()],
-  // Additional Vite configuration
-});
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': 'http://localhost:8080'
+    }
+  }
+}
 ```
-
-## 🎨 Styling
-
-### CSS Architecture
-- **Component-based** - Each component has its own CSS file
-- **Vanilla CSS** - No CSS frameworks, custom styling
-- **Responsive** - Mobile-first design approach
-- **Clean Classes** - Human-readable class names
-
-### Color Scheme
-- **Primary**: Blue (#3b82f6) - Action buttons
-- **Success**: Green (#10b981) - Correct answers
-- **Error**: Red (#dc2626) - Incorrect answers
-- **Background**: Light gray (#f8fafc) - Page background
 
 ## 📱 Responsive Design
 
 ### Breakpoints
-- **Desktop**: > 768px - Full layout with sidebar
-- **Mobile**: ≤ 768px - Stacked layout, collapsible sidebar
+- **Mobile**: < 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: > 1024px
 
 ### Mobile Optimizations
-- Touch-friendly buttons
-- Scrollable result tables
-- Optimized editor size
-- Simplified navigation
+- Touch-friendly button sizes
+- Collapsible navigation menu
+- Optimized form layouts
+- Readable font sizes
+- Proper viewport configuration
 
-## 🚀 Build & Deployment
+## 🔗 API Integration
 
-### Development
-```bash
-npm run dev          # Start dev server
-npm run build        # Build for production
-npm run preview      # Preview production build
-npm run lint         # Run ESLint (if configured)
+### Authentication Endpoints
+```javascript
+// Login
+POST /api/auth/login
+{
+  email: "user@example.com",
+  password: "password123"
+}
+
+// Register
+POST /api/auth/register
+{
+  name: "John Doe",
+  email: "user@example.com",
+  password: "password123"
+}
 ```
 
-### Production Build
-The build creates optimized files in `dist/`:
-- `index.html` - Main HTML file
-- `assets/` - Bundled CSS and JS files
-- Static assets with cache-friendly names
-
-### Deployment Options
-- **Netlify** - Drag and drop `dist/` folder
-- **Vercel** - Connect GitHub repository
-- **AWS S3** - Upload `dist/` contents
-- **Traditional hosting** - Upload `dist/` to web server
-
-## 🔌 API Integration
-
-### HTTP Client Setup
+### Assignment Endpoints
 ```javascript
-// src/config/api.js
-const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
-};
-```
+// Get all assignments
+GET /api/assignment
 
-### API Calls Example
-```javascript
+// Get specific assignment
+GET /api/assignment/:id
+
 // Execute SQL query
-const executeResponse = await axios.post(`${API_CONFIG.BASE_URL}/sql/query/execute`, {
-  query,
-  schemaId
-});
+POST /api/sql/execute
+{
+  query: "SELECT * FROM users;",
+  assignmentId: "assignment_id"
+}
+```
 
-// Validate query
-const validateResponse = await axios.post(`${API_CONFIG.BASE_URL}/sql/query/validate`, {
-  query,
-  assignmentId,
-  schemaId
-});
+## 🚀 Deployment
+
+### Build Process
+```bash
+# Install dependencies
+npm install
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Deployment Platforms
+- **Vercel**: Automatic deployments from Git
+- **Netlify**: Static site hosting with CI/CD
+- **GitHub Pages**: Free hosting for static sites
+- **AWS S3**: Scalable static website hosting
+
+### Environment Setup for Production
+```env
+VITE_API_URL=https://your-backend-api.com
 ```
 
 ## 🧪 Testing
 
-### Manual Testing
-1. Start development server
-2. Navigate to assignments
-3. Test SQL query execution
-4. Verify result validation
-5. Check responsive design
+### Manual Testing Checklist
+- [ ] User registration with valid data
+- [ ] User login with correct credentials
+- [ ] Form validation with invalid inputs
+- [ ] Toast notifications display correctly
+- [ ] Navigation between pages works
+- [ ] SQL editor functionality
+- [ ] Query execution and results display
+- [ ] Responsive design on different screen sizes
 
-### Browser Support
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
+### Browser Compatibility
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🔧 Development Tools
+
+### Dependencies
+```json
+{
+  "react": "^19.2.0",
+  "react-dom": "^19.2.0",
+  "react-router-dom": "^7.11.0",
+  "axios": "^1.13.2",
+  "react-hot-toast": "^2.4.1",
+  "@monaco-editor/react": "^4.7.0"
+}
+```
+
+### Dev Dependencies
+```json
+{
+  "vite": "^7.2.4",
+  "@vitejs/plugin-react": "^5.1.1",
+  "eslint": "^9.39.1"
+}
+```
+
+## 🎯 User Flow
+
+### New User Registration
+1. Visit `/register` page
+2. Fill in name, email, password, confirm password
+3. Submit form with validation
+4. See success toast notification
+5. Automatic redirect to home page
+6. User data stored in localStorage
+
+### Existing User Login
+1. Visit `/login` page
+2. Enter email and password
+3. Submit form with validation
+4. See welcome toast with user name
+5. Automatic redirect to home page
+6. Authentication token stored
+
+### SQL Learning Flow
+1. Browse assignments at `/assignments`
+2. Select assignment by difficulty
+3. Read problem statement and requirements
+4. View database schema and sample data
+5. Write SQL query in editor
+6. Execute query and view results
+7. Get hints if needed
+8. Validate answer and get feedback
 
 ## 🤝 Contributing
 
 ### Development Guidelines
-1. Follow existing component structure
+1. Follow React best practices and hooks patterns
 2. Use functional components with hooks
-3. Keep components small and focused
-4. Add CSS files for new components
-5. Test on multiple screen sizes
+3. Implement proper error boundaries
+4. Add loading states for async operations
+5. Ensure responsive design for all components
+6. Write clean, readable CSS with proper naming
+7. Test components across different browsers
 
 ### Code Style
-- Use ES6+ features
-- Prefer const/let over var
-- Use arrow functions
-- Keep functions pure when possible
+- Use ES6+ features and modern JavaScript
+- Follow consistent naming conventions
+- Add comments for complex logic
+- Use proper component structure
+- Implement proper prop validation
 
-## 📦 Dependencies
+## 📞 Support
 
-### Production
-- `react` - UI framework
-- `react-dom` - React DOM rendering
-- `react-router-dom` - Client-side routing
-- `@monaco-editor/react` - Code editor
-- `axios` - HTTP client
+### Common Issues
+- **API Connection**: Verify backend is running on correct port
+- **CORS Errors**: Check backend CORS configuration
+- **Build Errors**: Clear node_modules and reinstall dependencies
+- **Styling Issues**: Check CSS import paths and class names
 
-### Development
-- `vite` - Build tool
-- `@vitejs/plugin-react` - React plugin for Vite
-- `eslint` - Code linting
+### Debugging
+- Use React Developer Tools browser extension
+- Check browser console for JavaScript errors
+- Verify network requests in browser DevTools
+- Test API endpoints with tools like Postman
 
 ---
 
-For backend integration, see [Backend README](../Backend/README.md)
+**Frontend Ready for SQL Learning! 🎓**
