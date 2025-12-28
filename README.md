@@ -151,9 +151,7 @@ This project is licensed under the MIT License.
 
 - **Kumar Nilesh** - Initial development and authentication system
 
-## 🐛 Known Issues
 
-- None currently reported
 
 ## 📞 Support
 
@@ -163,4 +161,3 @@ For support and questions:
 
 ---
 
-**Happy SQL Learning! 🎉**
