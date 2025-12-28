@@ -125,29 +125,7 @@ CipherSQL-Studio/
 - `POST /api/sql/validate` - Validate SQL answer
 - `GET /api/sql/hints/:id` - Get hints for assignment
 
-## 🎯 Usage
 
-### For Users
-1. **Register/Login**: Create account or sign in at `/register` or `/login`
-2. **Browse Assignments**: View available SQL challenges at `/assignments`
-3. **Practice SQL**: Select an assignment and start coding
-4. **Get Feedback**: Receive hints and validation for your queries
-5. **Track Progress**: Monitor your learning journey
-
-### For Developers
-1. **Add Assignments**: Create new SQL challenges in the database
-2. **Customize UI**: Modify React components and styles
-3. **Extend API**: Add new endpoints in the Express backend
-4. **Database Management**: Manage users in MongoDB and queries in PostgreSQL
-
-## 🔐 Security Features
-
-- **Password Hashing**: bcryptjs with salt rounds = 12
-- **JWT Authentication**: Secure token-based sessions
-- **Input Validation**: Email format and password strength validation
-- **SQL Injection Protection**: Parameterized queries
-- **CORS Configuration**: Proper cross-origin resource sharing
-- **Environment Variables**: Sensitive data protection
 
 ## 🚀 Deployment
 
