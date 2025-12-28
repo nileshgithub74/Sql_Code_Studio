@@ -149,6 +149,5 @@ This project is licensed under the MIT License.
 
 ## 👥 Authors
 
-- **Kumar Nilesh** - Initial development and authentication system
-
+- **Kumar Nilesh** - Initial development and authentication syst
 
